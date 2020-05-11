@@ -44,6 +44,8 @@ def vote(request, question_id):
         choice = get_object_or_404(question.choice_set, pk=choice_id)
         choice.votes += 1
         choice.save()
+        question.popularity += 1
+        question.save()
         return HttpResponseRedirect('/polls/'+str(question_id)+'/results/')
     except KeyError:
         context = {'error_message': 'please select a choice', 'question': question}
