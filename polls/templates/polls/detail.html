@@ -16,13 +16,13 @@
         <p><strong>{{ error_message }}</strong></p>
     {% endif %}
     <form action="/polls/{{ question.id }}/vote/" method="POST">
-    <!-- <form action="{% url 'vote' question.id %}" method="POST"> -->
         {% csrf_token %}
         {% for choice in question.choice_set.all %}
             <input type="radio" id="choice{{ forloop.counter }}" name="choice" value="{{ choice.id }}">
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label> <br>
         {% endfor %}
-        <br> <input type="submit" value="Vote">
+        <br> 
+        <button type="submit">Vote</button>
     </form>
 </body>
 
