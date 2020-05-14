@@ -11,7 +11,7 @@ def index(request):
 
     context = {'questions': questions}
     
-    return render(request, 'polls/index_.html', context)
+    return render(request, 'polls/index.html', context)
 
 def list_polls(request):
     try:

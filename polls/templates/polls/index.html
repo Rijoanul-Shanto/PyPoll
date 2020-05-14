@@ -1,25 +1,83 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/fontawesome-all.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/tooplate-style.css' %}">
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polls</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Polls</title>
+
 </head>
 
 <body>
+
+  <!-- Loader -->
+  <!-- <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div> -->
+
+  <div class="tm-main">
+
+    <div class="tm-welcome-section">
+      <div class="container tm-navbar-container">
+        <div class="row">
+          <div class="col-xl-12">
+            <nav class="navbar navbar-expand-sm">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a href="/polls/" class="nav-link tm-nav-link tm-text-white active">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/polls/list/" class="nav-link tm-nav-link tm-text-white">List</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link tm-nav-link tm-text-white">Results</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center tm-welcome-container">
+        <div class="tm-welcome">
+          <h1 class="text-uppercase mb-3 tm-site-name">Polls</h1>
+          <p class="tm-site-description">Vote From Recent Polls</p>
+        </div>
+      </div>
+
+    </div>
+
     {% if questions %}
-        <ul>
-            {% for question in questions %}
-                <li> <a href="/polls/{{ question.id }}/">{{ question.question_text }}</a> </li> <br>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Sorry! No polls are availabe</p>
+    <div class="row tm-albums-container grid">
+      {% for question in questions %}
+      <a href="/polls/{{ question.id }}/" class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
+        <figure class="effect-sadie">
+          <img src="/static/polls/images/insertion{{ forloop.counter }}.jpg" alt="Image" class="img-fluid">
+          <figcaption>
+            <h2>{{ question.question_text }}</h2>
+          </figcaption>
+        </figure>
+      </a>
+      {% endfor %}
+    </div>
     {% endif %}
+
+    <footer class="row">
+      <div class="col-xl-12">
+        <p class="text-center p-4">Copyright &copy; <span class="tm-current-year">2020</span> - Robert JR</p>
+      </div>
+    </footer>
+  </div> <!-- .container -->
+
+  </div> <!-- .main -->
 </body>
 
 </html>

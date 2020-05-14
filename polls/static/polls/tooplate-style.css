@@ -443,7 +443,7 @@ figure.effect-sadie:hover p {
 }
 
 .tm-media-body-2 { flex-direction: column; }
-.tm-media-body-2 .btn { align-self: flex-end; }
+.tm-media-body-2 .btn { align-self: center; }
 
 .tm-media-2-icon {
     margin-right: 60px;
