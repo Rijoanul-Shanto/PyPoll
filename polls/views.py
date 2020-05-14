@@ -15,11 +15,18 @@ def index(request):
 
 def list_polls(request):
     try:
-        questions = Question.objects.order_by('-pub_date')
+        questions = Question.objects.filter(is_availabe=True)
     except Question.DoesNotExist:
         raise Http404('No polls are exist')
 
-    context = {'questions': questions}
+    context = {
+        'latest_questions': questions.order_by('-pub_date'),
+        'oldest_questions': questions,
+        'high_popular_questions': questions.order_by('-popularity', '-pub_date'),
+        'low_popular_questions': questions.order_by('popularity')
+    }
+
+    # print(Question.objects.order_by('-popularity', '-pub_date'))
 
     return render(request, 'polls/list.html', context)
 

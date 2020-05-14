@@ -25,20 +25,20 @@
 
     <div class="tm-main">
 
-        <div class="tm-welcome-section">
+        <div class="tm-welcome-section" style="background-image: url('/static/polls/images/insertion-header.jpg');">
             <div class="container tm-navbar-container">
                 <div class="row">
                     <div class="col-xl-12">
                         <nav class="navbar navbar-expand-sm">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a href="/polls/" class="nav-link tm-nav-link tm-text-white active">Home</a>
+                                    <a href="/polls/" class="nav-link tm-nav-link tm-text-white">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/polls/list/" class="nav-link tm-nav-link tm-text-white">List</a>
+                                    <a href="/polls/list/" class="nav-link tm-nav-link tm-text-white active">List</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link tm-nav-link tm-text-white">Results</a>
+                                    <a href="#" class="nav-link tm-nav-link tm-text-white">About</a>
                                 </li>
                             </ul>
                         </nav>
@@ -56,7 +56,6 @@
         </div>
         <br>
         <br>
-
         <div class="row tm-about-row tm-mb-medium">
             <div class="tm-tab-links-container">
 
@@ -65,28 +64,28 @@
                         <a class="nav-link tm-bg-gray tm-media-v-center tm-tab-link active" id="home-tab"
                             data-toggle="tab" href="#tab1" role="tab" aria-controls="home" aria-selected="false">
                             <!-- <i class="fas fa-2x fa-music pr-4"></i> -->
-                            <p class="media-body mb-0 tm-media-link">Proin vitae ligula</p>
+                            <p class="media-body mb-0 tm-media-link">Sort By Latest</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link tm-bg-gray tm-media-v-center tm-tab-link" id="profile-tab" data-toggle="tab"
                             href="#tab2" role="tab" aria-controls="profile" aria-selected="false">
                             <!-- <i class="fab fa-2x fa-accusoft pr-4"></i> -->
-                            <p class="media-body mb-0 tm-media-link">Nunc nec luctus</p>
+                            <p class="media-body mb-0 tm-media-link">Sort By Oldest</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link tm-bg-gray tm-media-v-center tm-tab-link" id="contact-tab" data-toggle="tab"
                             href="#tab3" role="tab" aria-controls="contact" aria-selected="false">
                             <!-- <i class="fab fa-2x fa-amazon-pay pr-4"></i> -->
-                            <p class="media-body mb-0 tm-media-link">Etiam vel ligula</p>
+                            <p class="media-body mb-0 tm-media-link">Sort By High Popularity</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link tm-bg-gray tm-media-v-center tm-tab-link" id="contact-tab" data-toggle="tab"
                             href="#tab4" role="tab" aria-controls="contact" aria-selected="false">
                             <!-- <i class="fas fa-2x fa-headphones pr-4"></i> -->
-                            <p class="media-body mb-0 tm-media-link">Sed id magna</p>
+                            <p class="media-body mb-0 tm-media-link">Sort By Low Popularity</p>
                         </a>
                     </li>
                 </ul>
@@ -98,13 +97,13 @@
                         <div class="media tm-media-2">
                             <!-- <i class="fas fa-5x fa-music mb-3 tm-text-pink-dark tm-media-2-icon"></i> -->
                             <div class="media-body tm-media-body-2">
-                                {% if questions %}
+                                {% if latest_questions %}
                                 <div class="row mb-5">
                                     <div class="col-xl-12">
                                         <div class="media-boxes">
-                                            {% for question in questions %}
+                                            {% for question in latest_questions %}
                                             <div class="media">
-                                                <img src="/static/polls/images/insertions.jpg" alt="Image" class="mr-3">
+                                                <img src="/static/polls/images/tab1.jpg" alt="Image" class="mr-3">
                                                 <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
                                                     <div class="tm-description-box">
                                                         <h5 class="tm-text-blue">{{ question.question_text }}</h5>
@@ -127,15 +126,27 @@
                         <div class="media tm-media-2">
                             <!-- <i class="fab fa-5x fa-accusoft mb-3 tm-text-pink-dark tm-media-2-icon"></i> -->
                             <div class="media-body tm-media-body-2">
-                                <h2 class="mb-4 tm-text-pink-dark tm-media-2-header">Nunc nec luctus eu mi aliquet</h2>
-                                <p class="mb-4">Phasellus efficitur, ante et bibendum accumsan, nisi tellus fermentum
-                                    eros, eget tincidunt enim orci at arcu. Etiam vel ligula non neque pharetra
-                                    scelerisque mollis ac arcu.</p>
-                                <p class="mb-4">In luctus eu turpis sed sodales. Suspendisse nisi ante, dapibus id purus
-                                    at, tristique ullamcorper dolor. Nullam tempus quam id odio tempus bibendum. Nullam
-                                    vulputate, justo fermentum interdum fermentum, diam elit iaculis lorem, sed puvina.
-                                </p>
-                                <a href="#" class="btn btn-secondary">Read More</a>
+                                {% if oldest_questions %}
+                                <div class="row mb-5">
+                                    <div class="col-xl-12">
+                                        <div class="media-boxes">
+                                            {% for question in oldest_questions %}
+                                            <div class="media">
+                                                <img src="/static/polls/images/tab2.jpg" alt="Image" class="mr-3">
+                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                    <div class="tm-description-box">
+                                                        <h5 class="tm-text-blue">{{ question.question_text }}</h5>
+                                                    </div>
+                                                    <!-- <div class="tm-buy-box"></div> -->
+                                                    <a href="#" class="btn btn-secondary">Vote</a>
+                                                </a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <!-- <a href="#" class="btn btn-secondary">Read More</a> -->
                             </div>
                         </div>
                     </div>
@@ -144,15 +155,27 @@
                         <div class="media tm-media-2">
                             <!-- <i class="fab fa-5x fa-amazon-pay mb-3 tm-text-pink-dark tm-media-2-icon"></i> -->
                             <div class="media-body tm-media-body-2">
-                                <h2 class="mb-4 tm-text-pink-dark tm-media-2-header">Etiam vel ligula eu mi aliquet</h2>
-                                <p class="mb-4">Phasellus efficitur, ante et bibendum accumsan, nisi tellus fermentum
-                                    eros, eget tincidunt enim orci at arcu. Etiam vel ligula non neque pharetra
-                                    scelerisque mollis ac arcu.</p>
-                                <p class="mb-4">In luctus eu turpis sed sodales. Suspendisse nisi ante, dapibus id purus
-                                    at, tristique ullamcorper dolor. Nullam tempus quam id odio tempus bibendum. Nullam
-                                    vulputate, justo fermentum interdum fermentum, diam elit iaculis lorem, sed puvina.
-                                </p>
-                                <a href="#" class="btn btn-secondary">Read More</a>
+                                {% if high_popular_questions %}
+                                <div class="row mb-5">
+                                    <div class="col-xl-12">
+                                        <div class="media-boxes">
+                                            {% for question in high_popular_questions %}
+                                            <div class="media">
+                                                <img src="/static/polls/images/tab3.jpg" alt="Image" class="mr-3">
+                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                    <div class="tm-description-box">
+                                                        <h5 class="tm-text-blue">{{ question.question_text }}</h5>
+                                                    </div>
+                                                    <!-- <div class="tm-buy-box"></div> -->
+                                                    <a href="#" class="btn btn-secondary">Vote</a>
+                                                </a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <!-- <a href="#" class="btn btn-secondary">Read More</a> -->
                             </div>
                         </div>
                     </div>
@@ -161,15 +184,27 @@
                         <div class="media tm-media-2">
                             <!-- <i class="fas fa-5x fa-headphones mb-3 tm-text-pink-dark tm-media-2-icon"></i> -->
                             <div class="media-body tm-media-body-2">
-                                <h2 class="mb-4 tm-text-pink-dark tm-media-2-header">Sed id magna eu mi aliquet</h2>
-                                <p class="mb-4">Phasellus efficitur, ante et bibendum accumsan, nisi tellus fermentum
-                                    eros, eget tincidunt enim orci at arcu. Etiam vel ligula non neque pharetra
-                                    scelerisque mollis ac arcu.</p>
-                                <p class="mb-4">In luctus eu turpis sed sodales. Suspendisse nisi ante, dapibus id purus
-                                    at, tristique ullamcorper dolor. Nullam tempus quam id odio tempus bibendum. Nullam
-                                    vulputate, justo fermentum interdum fermentum, diam elit iaculis lorem, sed puvina.
-                                </p>
-                                <a href="#" class="btn btn-secondary">Read More</a>
+                                {% if low_popular_questions %}
+                                <div class="row mb-5">
+                                    <div class="col-xl-12">
+                                        <div class="media-boxes">
+                                            {% for question in low_popular_questions %}
+                                            <div class="media">
+                                                <img src="/static/polls/images/tab4.jpg" alt="Image" class="mr-3">
+                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                    <div class="tm-description-box">
+                                                        <h5 class="tm-text-blue">{{ question.question_text }}</h5>
+                                                    </div>
+                                                    <!-- <div class="tm-buy-box"></div> -->
+                                                    <a href="#" class="btn btn-secondary">Vote</a>
+                                                </a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <!-- <a href="#" class="btn btn-secondary">Read More</a> -->
                             </div>
                         </div>
                     </div>
