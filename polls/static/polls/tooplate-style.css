@@ -265,7 +265,7 @@ figure.effect-sadie:hover p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../img/insertion-1800x450.jpg);
+    /* background-image: url(../img/insertion-1800x450.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -374,14 +374,14 @@ figure.effect-sadie:hover p {
 }
 
 .tm-subscribe-img {
-    background-image: url(../img/insertion-600x400.jpg);
+    /* background-image: url(../img/insertion-600x400.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 400px;
 }
 
 .tm-about-img {
-    background-image: url(../img/insertion-560x336-01.jpg);
+    /* background-image: url(../img/insertion-560x336-01.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     height: 336px;
