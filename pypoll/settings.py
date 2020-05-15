@@ -67,10 +67,21 @@ WSGI_APPLICATION = 'pypoll.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'daec4s4hodrqk',
+        'USER': 'tszgmmuqhxvfuv',
+        'PASSWORD': '6e4a0ff2011df9fb761095c6335e4cba4e546ec416c6cdacb7a7ba75fee597d7',
+        'HOST': 'ec2-3-231-16-122.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
