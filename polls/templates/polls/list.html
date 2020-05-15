@@ -91,12 +91,12 @@
                                             {% for question in latest_questions %}
                                             <div class="media">
                                                 <img src="/static/polls/images/tab1.jpg" alt="Image" class="mr-3">
-                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                <div class="media-body tm-bg-gray">
                                                     <div class="tm-description-box">
                                                         <h5 class="tm-text-blue">{{ question.question_text }}</h5>
                                                     </div>
-                                                    <a href="#" class="btn btn-secondary">Vote</a>
-                                                </a>
+                                                    <a href="/polls/{{ question.id }}/" class="btn btn-secondary">Vote</a>
+                                                </div>
                                             </div>
                                             {% endfor %}
                                         </div>
@@ -117,12 +117,12 @@
                                             {% for question in oldest_questions %}
                                             <div class="media">
                                                 <img src="/static/polls/images/tab2.jpg" alt="Image" class="mr-3">
-                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                <div class="media-body tm-bg-gray">
                                                     <div class="tm-description-box">
                                                         <h5 class="tm-text-blue">{{ question.question_text }}</h5>
                                                     </div>
-                                                    <a href="#" class="btn btn-secondary">Vote</a>
-                                                </a>
+                                                    <a href="/polls/{{ question.id }}/" class="btn btn-secondary">Vote</a>
+                                                </div>
                                             </div>
                                             {% endfor %}
                                         </div>
@@ -143,12 +143,12 @@
                                             {% for question in high_popular_questions %}
                                             <div class="media">
                                                 <img src="/static/polls/images/tab3.jpg" alt="Image" class="mr-3">
-                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                <div class="media-body tm-bg-gray">
                                                     <div class="tm-description-box">
                                                         <h5 class="tm-text-blue">{{ question.question_text }}</h5>
                                                     </div>
-                                                    <a href="#" class="btn btn-secondary">Vote</a>
-                                                </a>
+                                                    <a href="/polls/{{ question.id }}/" class="btn btn-secondary">Vote</a>
+                                                </div>
                                             </div>
                                             {% endfor %}
                                         </div>
@@ -169,12 +169,12 @@
                                             {% for question in low_popular_questions %}
                                             <div class="media">
                                                 <img src="/static/polls/images/tab4.jpg" alt="Image" class="mr-3">
-                                                <a href="/polls/{{ question.id }}/" class="media-body tm-bg-gray">
+                                                <div class="media-body tm-bg-gray">
                                                     <div class="tm-description-box">
                                                         <h5 class="tm-text-blue">{{ question.question_text }}</h5>
                                                     </div>
-                                                    <a href="#" class="btn btn-secondary">Vote</a>
-                                                </a>
+                                                    <a href="/polls/{{ question.id }}/" class="btn btn-secondary">Vote</a>
+                                                </div>
                                             </div>
                                             {% endfor %}
                                         </div>
