@@ -155,7 +155,6 @@ a:hover, a:focus, a.active {
 }
 
 .tm-new-release {
-    /* background-image: url(../img/gradient-blue.png); */
     background-repeat: no-repeat;
     background-size: cover;
     color: #1C689A;
