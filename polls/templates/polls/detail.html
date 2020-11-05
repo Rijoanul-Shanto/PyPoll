@@ -1,29 +1,32 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Poll Detail</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h2>{{ question.question_text }}</h2>
     {% if error_message %}
-        <p><strong>{{ error_message }}</strong></p>
+    <p><strong>{{ error_message }}</strong></p>
     {% endif %}
     <form action="/polls/{{ question.id }}/vote/" method="POST">
-        {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" id="choice{{ forloop.counter }}" name="choice" value="{{ choice.id }}">
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label> <br>
-        {% endfor %}
-        <br> 
-        <button type="submit">Vote</button>
+      {% csrf_token %} {% for choice in question.choice_set.all %}
+      <input
+        type="radio"
+        id="choice{{ forloop.counter }}"
+        name="choice"
+        value="{{ choice.id }}"
+      />
+      <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+      <br />
+      {% endfor %}
+      <br />
+      <button type="submit">Vote</button>
     </form>
-</body>
-
+  </body>
 </html>
